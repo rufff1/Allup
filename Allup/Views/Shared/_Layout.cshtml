@@ -1,0 +1,515 @@
+﻿@using Allup.Services
+@using Allup.Interfaces
+
+
+
+@inject ILayoutService LayoutService
+
+@{
+
+    Dictionary<string,string> settings =await LayoutService.GetSettingAsync();
+    IEnumerable<Category> categories = await LayoutService.GetCategoriesAsync();
+    IEnumerable<BasketVM> basketVMs = await LayoutService.GetBasketVMsAsync();
+
+    HeaderVM headerVM = new HeaderVM
+    {
+        Settings = settings,
+        BasketVMs = basketVMs,
+        Categories = categories
+    };
+
+}
+
+
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+<!-- Mirrored from demo.hasthemes.com/allup/allup/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Sep 2020 10:46:32 GMT -->
+<head>
+    <meta charset="utf-8">
+
+    <!--====== Title ======-->
+    <title>Allup - Electronics Responsive eCommerce HTML Template.</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="~/assets/images/favicon.png" type="image/png">
+
+
+    <!-- CSS
+    ============================================ -->
+    <!--===== Vendor CSS (Bootstrap & Icon Font) =====-->
+
+    <link rel="stylesheet" href="~/assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/ionicons.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/fontawesome.min.css">
+
+    <!--===== Plugins CSS (All Plugins Files) =====-->
+
+    <link rel="stylesheet" href="~/assets/css/plugins/slick.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/animate.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/jquery-ui.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/default.css">
+
+    <!--====== Main Style CSS ======-->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+
+
+    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
+    <!-- <link rel="stylesheet" href="~/assets/css/vendor/plugins.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.min.css"> -->
+
+</head>
+
+<body>
+
+    <!--====== PRELOADER PART START ======-->
+
+    <div id="preloader">
+        <div class="preloader">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!--====== PRELOADER PART ENDS ======-->
+    <!--====== Header Part Start ======-->
+
+    @await Component.InvokeAsync("Header",headerVM)
+
+    <!--====== Header Part Ends ======-->
+
+
+    @RenderBody()
+
+
+    <!--====== Brand Part Start ======-->
+
+    <div class="brand-area pt-80">
+        <div class="container-fluid custom-container">
+            <div class="row brand-active">
+                <div class="col-lg-2">
+                    <div class="single-brand">
+                        <a href="#">
+                            <img src="~/assets/images/brand/brand-1.jpg" alt="brand">
+                        </a>
+                    </div> <!-- single brand -->
+                </div>
+                <div class="col-lg-2">
+                    <div class="single-brand">
+                        <a href="#">
+                            <img src="~/assets/images/brand/brand-2.jpg" alt="brand">
+                        </a>
+                    </div> <!-- single brand -->
+                </div>
+                <div class="col-lg-2">
+                    <div class="single-brand">
+                        <a href="#">
+                            <img src="~/assets/images/brand/brand-3.jpg" alt="brand">
+                        </a>
+                    </div> <!-- single brand -->
+                </div>
+                <div class="col-lg-2">
+                    <div class="single-brand">
+                        <a href="#">
+                            <img src="~/assets/images/brand/brand-4.jpg" alt="brand">
+                        </a>
+                    </div> <!-- single brand -->
+                </div>
+                <div class="col-lg-2">
+                    <div class="single-brand">
+                        <a href="#">
+                            <img src="~/assets/images/brand/brand-5.jpg" alt="brand">
+                        </a>
+                    </div> <!-- single brand -->
+                </div>
+                <div class="col-lg-2">
+                    <div class="single-brand">
+                        <a href="#">
+                            <img src="~/assets/images/brand/brand-6.jpg" alt="brand">
+                        </a>
+                    </div> <!-- single brand -->
+                </div>
+                <div class="col-lg-2">
+                    <div class="single-brand">
+                        <a href="#">
+                            <img src="~/assets/images/brand/brand-4.jpg" alt="brand">
+                        </a>
+                    </div> <!-- single brand -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div>
+
+    <!--====== Brand Part Ends ======-->
+    <!--====== Features Banner Part Start ======-->
+
+    <section class="features-banner-area pt-80 pb-100">
+        <div class="container-fluid custom-container">
+            <div class="features-banner-wrapper d-flex flex-wrap">
+                <div class="single-features-banner d-flex">
+                    <div class="banner-icon">
+                        <img src="~/assets/images/banner-icon/icon1.png" alt="Icon">
+                    </div>
+                    <div class="banner-content media-body">
+                        <h3 class="banner-title">Free Shipping</h3>
+                        <p>Free shipping on all US order</p>
+                    </div>
+                </div> <!-- single features banner -->
+                <div class="single-features-banner d-flex">
+                    <div class="banner-icon">
+                        <img src="~/assets/images/banner-icon/icon2.png" alt="Icon">
+                    </div>
+                    <div class="banner-content media-body">
+                        <h3 class="banner-title">Support 24/7</h3>
+                        <p>Contact us 24 hours a day</p>
+                    </div>
+                </div> <!-- single features banner -->
+                <div class="single-features-banner d-flex">
+                    <div class="banner-icon">
+                        <img src="~/assets/images/banner-icon/icon3.png" alt="Icon">
+                    </div>
+                    <div class="banner-content media-body">
+                        <h3 class="banner-title">100% Money Back</h3>
+                        <p>You have 30 days to Return</p>
+                    </div>
+                </div> <!-- single features banner -->
+                <div class="single-features-banner d-flex">
+                    <div class="banner-icon">
+                        <img src="~/assets/images/banner-icon/icon4.png" alt="Icon">
+                    </div>
+                    <div class="banner-content media-body">
+                        <h3 class="banner-title">90 Days Return</h3>
+                        <p>If goods have problems</p>
+                    </div>
+                </div> <!-- single features banner -->
+                <div class="single-features-banner d-flex">
+                    <div class="banner-icon">
+                        <img src="~/assets/images/banner-icon/icon5.png" alt="Icon">
+                    </div>
+                    <div class="banner-content media-body">
+                        <h3 class="banner-title">Payment Secure</h3>
+                        <p>We ensure secure payment</p>
+                    </div>
+                </div> <!-- single features banner -->
+            </div> <!-- features banner wrapper -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== Features Banner Part Ends ======-->
+    <!--====== Blog Part Start ======-->
+
+    <section class="blog-area blog-bg pt-100 pb-100">
+        <div class="container">
+            <div class="row blog-active">
+                <div class="col-lg-4">
+                    <div class="single-blog">
+                        <div class="blag-image">
+                            <a href="blog-single-left-sidebar.html"><img src="~/assets/images/blog-1.jpg" alt="Blog"></a>
+                            <p class="meta-date">
+                                <span class="day">05</span>
+                                <span class="month">Dec</span>
+                            </p>
+                        </div>
+                        <div class="blag-content">
+                            <h2 class="blog-title"><a href="blog-single-left-sidebar.html">This is Third Post For XipBlog</a></h2>
+                            <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum ...</p>
+                        </div>
+                    </div> <!-- single blog -->
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-blog">
+                        <div class="blag-image">
+                            <a href="blog-single-left-sidebar.html"><img src="~/assets/images/blog-2.jpg" alt="Blog"></a>
+                            <p class="meta-date">
+                                <span class="day">05</span>
+                                <span class="month">Dec</span>
+                            </p>
+                        </div>
+                        <div class="blag-content">
+                            <h2 class="blog-title"><a href="blog-single-left-sidebar.html">This is Third Post For XipBlog</a></h2>
+                            <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum ...</p>
+                        </div>
+                    </div> <!-- single blog -->
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-blog">
+                        <div class="blag-image">
+                            <a href="blog-single-left-sidebar.html"><img src="~/assets/images/blog-3.jpg" alt="Blog"></a>
+                            <p class="meta-date">
+                                <span class="day">05</span>
+                                <span class="month">Dec</span>
+                            </p>
+                        </div>
+                        <div class="blag-content">
+                            <h2 class="blog-title"><a href="blog-single-left-sidebar.html">This is Third Post For XipBlog</a></h2>
+                            <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum ...</p>
+                        </div>
+                    </div> <!-- single blog -->
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-blog">
+                        <div class="blag-image">
+                            <a href="blog-single-left-sidebar.html"><img src="~/assets/images/blog-4.jpg" alt="Blog"></a>
+                            <p class="meta-date">
+                                <span class="day">05</span>
+                                <span class="month">Dec</span>
+                            </p>
+                        </div>
+                        <div class="blag-content">
+                            <h2 class="blog-title"><a href="blog-single-left-sidebar.html">This is Third Post For XipBlog</a></h2>
+                            <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum ...</p>
+                        </div>
+                    </div> <!-- single blog -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== Blog Part Ends ======-->
+    <!--====== Testimonial Part Start ======-->
+
+    <section class="testimonial-area bg_cover pt-100 pb-100" style="background-image: url(assets/images/bg_testimonial.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="testimonial-active">
+                        <div class="single-testimonial d-sm-flex">
+                            <div class="testimonial-author">
+                                <img src="~/assets/images/author-1.png" alt="author">
+                            </div>
+                            <div class="testimonial-content media-body">
+                                <p> An has feugiat vivendum, ad vix tacimates accusamus, cum commune lucilius no. Sit at alia civibus indoctum, ea mel regione percipit adipisci. Per modus nostrum vituperata no, eam ne magna solum constituam.</p>
+                                <h4 class="author-name">John Doe</h4>
+                                <span class="designation">email@yourwebsitename.com</span>
+                            </div>
+                        </div> <!-- single testimonial -->
+                        <div class="single-testimonial d-sm-flex">
+                            <div class="testimonial-author">
+                                <img src="~/assets/images/author-1.png" alt="author">
+                            </div>
+                            <div class="testimonial-content media-body">
+                                <p> An has feugiat vivendum, ad vix tacimates accusamus, cum commune lucilius no. Sit at alia civibus indoctum, ea mel regione percipit adipisci. Per modus nostrum vituperata no, eam ne magna solum constituam.</p>
+                                <h4 class="author-name">John Doe</h4>
+                                <span class="designation">email@yourwebsitename.com</span>
+                            </div>
+                        </div> <!-- single testimonial -->
+                        <div class="single-testimonial d-sm-flex">
+                            <div class="testimonial-author">
+                                <img src="~/assets/images/author-1.png" alt="author">
+                            </div>
+                            <div class="testimonial-content media-body">
+                                <p> An has feugiat vivendum, ad vix tacimates accusamus, cum commune lucilius no. Sit at alia civibus indoctum, ea mel regione percipit adipisci. Per modus nostrum vituperata no, eam ne magna solum constituam.</p>
+                                <h4 class="author-name">John Doe</h4>
+                                <span class="designation">email@yourwebsitename.com</span>
+                            </div>
+                        </div> <!-- single testimonial -->
+                    </div> <!-- testimonial Active -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== Testimonial Part Ends ======-->
+    <!--====== Newsletter Part Start ======-->
+
+    <section class="newsletter-area pt-100 pb-100 bg_cover" style="background-image: url(assets/images/bg-newletter.jpg)">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-lg-8">
+                    <div class="newsletter-content">
+                        <h2 class="newsletter-title">Subscribe our newsletter</h2>
+                        <p>allup is a powerful eCommerce HTML Template</p>
+
+                        <div class="newsletter-forn">
+                            <form action="#">
+                                <input type="text" placeholder="Your Email address">
+                                <button class="main-btn">Subscribe</button>
+                            </form>
+                        </div>
+                    </div> <!-- newsletter content -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== Newsletter Part Ends ======-->
+    <!--====== Footer Part Start ======-->
+
+    @await Component.InvokeAsync("Footer",settings);
+
+    <!--====== Footer Part Ends ======-->
+    <!--====== Quick View Part Start ======-->
+    <!-- Modal -->
+    <div class="modal fade " id="productQuickModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fal fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="product-quick-view-image mt-30">
+                                <div class="quick-view-image">
+                                    <div class="single-view-image">
+                                        <img src="~/assets/images/product-quick/product-1.jpg" alt="product">
+                                    </div>
+                                    <div class="single-view-image">
+                                        <img src="~/assets/images/product-quick/product-2.jpg" alt="product">
+                                    </div>
+                                    <div class="single-view-image">
+                                        <img src="~/assets/images/product-quick/product-3.jpg" alt="product">
+                                    </div>
+                                    <div class="single-view-image">
+                                        <img src="~/assets/images/product-quick/product-4.jpg" alt="product">
+                                    </div>
+                                    <div class="single-view-image">
+                                        <img src="~/assets/images/product-quick/product-5.jpg" alt="product">
+                                    </div>
+                                </div>
+                                <ul class="quick-view-thumb">
+                                    <li>
+                                        <div class="single-thumb">
+                                            <img src="~/assets/images/product-quick/product-1.jpg" alt="">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="single-thumb">
+                                            <img src="~/assets/images/product-quick/product-2.jpg" alt="">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="single-thumb">
+                                            <img src="~/assets/images/product-quick/product-3.jpg" alt="">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="single-thumb">
+                                            <img src="~/assets/images/product-quick/product-4.jpg" alt="">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="single-thumb">
+                                            <img src="~/assets/images/product-quick/product-5.jpg" alt="">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div> <!-- Modal Quick View Image -->
+                        </div>
+                        <div class="col-md-6">
+                            <div class="product-quick-view-content mt-30">
+                                <h3 class="product-title">Trans-Weight Hooded Wind and Water Resistant Shell</h3>
+                                <p class="reference">Reference: demo_12</p>
+                                <ul class="rating">
+                                    <li class="rating-on"><i class="fas fa-star"></i></li>
+                                    <li class="rating-on"><i class="fas fa-star"></i></li>
+                                    <li class="rating-on"><i class="fas fa-star"></i></li>
+                                    <li class="rating-on"><i class="fas fa-star"></i></li>
+                                    <li class="rating-on"><i class="fas fa-star"></i></li>
+                                </ul>
+                                <div class="product-prices">
+                                    <span class="sale-price"> €23.90</span>
+                                    <span class="regular-price">€21.03</span>
+                                    <span class="save">Save 12%</span>
+                                </div>
+                                <p class="product-description">Block out the haters with the fresh adidas® Originals Kaval Windbreaker Jacket. <br> Part of the Kaval Collection. <br> Regular fit is eased, but not sloppy, and perfect for any activity. <br> Plain-woven jacket specifically constructed for freedom of movement.</p>
+                                <div class="product-size-color flex-wrap">
+                                    <div class="product-size">
+                                        <h5 class="title">Size</h5>
+                                        <select>
+                                            <option value="1">S</option>
+                                            <option value="2">M</option>
+                                            <option value="3">L</option>
+                                            <option value="4">XL</option>
+                                        </select>
+                                    </div>
+                                    <div class="product-color">
+                                        <h5 class="title">Color</h5>
+                                        <div class="color-input">
+                                            <div class="single-color color-1">
+                                                <input type="radio" id="radio-1" name="color">
+                                                <label for="radio-1"></label>
+                                            </div>
+                                            <div class="single-color color-2">
+                                                <input type="radio" id="radio-2" name="color">
+                                                <label for="radio-2"></label>
+                                            </div>
+                                            <div class="single-color color-3">
+                                                <input type="radio" id="radio-3" name="color">
+                                                <label for="radio-3"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-quantity">
+                                        <h5 class="title">Quantity</h5>
+                                        <div class="quantity d-flex">
+                                            <button type="button" id="sub" class="sub"><i class="fal fa-minus"></i></button>
+                                            <input type="text" value="1" />
+                                            <button type="button" id="add" class="add"><i class="fal fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-add-cart">
+                                    <button><i class="icon ion-bag"></i> Add to cart</button>
+                                </div>
+                                <div class="product-wishlist-compare">
+                                    <ul class="d-flex flex-wrap">
+                                        <li><a href="#"><i class="fal fa-heart"></i> Add to wishlist</a></li>
+                                        <li><a href="#"><i class="fal fa-repeat"></i> Add to compare</a></li>
+                                    </ul>
+                                </div>
+                                <div class="product-share d-flex">
+                                    <p>Share</p>
+                                    <ul class="social media-body">
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-google"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div> <!-- Modal Quick View Content -->
+                        </div>
+                    </div> <!-- row -->
+                </div>  <!-- Modal Body -->
+            </div> <!-- Modal content -->
+        </div> <!-- Modal dialog -->
+    </div> <!-- Modal -->
+    <!--====== Quick View Part Ends ======-->
+    <!--====== BACK TOP TOP PART START ======-->
+
+    <a href="#" class="back-to-top"><i class="ion-android-arrow-up"></i></a>
+
+    <!--====== BACK TOP TOP PART ENDS ======-->
+    <!--====== Vendors js ======-->
+    <script src="~/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/assets/js/vendor/modernizr-3.7.1.min.js"></script>
+
+    <!--====== Plugins js ======-->
+    <script src="~/assets/js/plugins/popper.min.js"></script>
+    <script src="~/assets/js/plugins/bootstrap.min.js"></script>
+    <script src="~/assets/js/plugins/slick.min.js"></script>
+    <script src="~/assets/js/plugins/jquery.countdown.min.js"></script>
+    <script src="~/assets/js/plugins/jquery-ui.min.js"></script>
+
+
+    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
+    <!-- <script src="~/assets/js/plugins.min.js"></script> -->
+    <!--====== Main Activation js ======-->
+    <script src="~/assets/js/main.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+
+
+
+
+</body>
+
+
+<!-- Mirrored from demo.hasthemes.com/allup/allup/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Sep 2020 10:47:16 GMT -->
+</html>

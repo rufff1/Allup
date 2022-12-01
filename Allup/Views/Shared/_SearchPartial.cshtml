@@ -1,0 +1,16 @@
+﻿@using Allup.ViewModels.Shop
+
+@model IEnumerable<ProductListVM>
+
+
+@foreach (ProductListVM productListVM in Model)
+{
+    <li>
+        <img width="100" src="~/assets/images/product/@productListVM.Image" alt="Alternate Text" />
+        <a asp-controller="shop" asp-action="detail" asp-route-id="@productListVM.Id    ">@productListVM.Title</a>
+
+    </li>
+}
+
+
+
