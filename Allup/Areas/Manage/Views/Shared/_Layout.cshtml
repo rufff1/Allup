@@ -49,6 +49,8 @@
                 </a>
             </li>
 
+
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -61,6 +63,23 @@
                 <a class="nav-link" asp-area="manage" asp-controller="brand" asp-action="index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Brand</span>
+                </a>
+            </li>
+
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Category
+            </div>
+
+            <li class="nav-item active">
+                <a class="nav-link" asp-area="manage" asp-controller="category" asp-action="index">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Category</span>
                 </a>
             </li>
 
@@ -79,7 +98,6 @@
                     </div>
                 </div>
             </li>-->
-
             <!-- Nav Item - Utilities Collapse Menu -->
             <!--<li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -98,15 +116,12 @@
                     </div>
                 </div>
             </li>-->
-
             <!-- Divider -->
             <!--<hr class="sidebar-divider">-->
-
             <!-- Heading -->
             <!--<div class="sidebar-heading">
                 Addons
             </div>-->
-
             <!-- Nav Item - Pages Collapse Menu -->
             <!--<li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
@@ -127,7 +142,6 @@
                     </div>
                 </div>
             </li>-->
-
             <!-- Nav Item - Charts -->
             <!--<li class="nav-item">
                 <a class="nav-link" href="charts.html">
@@ -135,7 +149,6 @@
                     <span>Charts</span>
                 </a>
             </li>-->
-
             <!-- Nav Item - Tables -->
             <!--<li class="nav-item">
                 <a class="nav-link" href="tables.html">
@@ -143,7 +156,6 @@
                     <span>Tables</span>
                 </a>
             </li>-->
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -430,21 +442,31 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/manage/vendor/jquery/jquery.min.js"></script>
+    <script src="~/manage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+    @*render etdik linkleri. birin parametr script render etdiyimize verdiyimiz addi. ikincideki
+        false yazdig yeni butun sehifelerde islemesin yazlniz biz istediklerimizde _ValidationPartial a cixartdig linkler ordadi*@
+    @RenderSection("script", false)
+
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/manage/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="~/manage/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="~/manage/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="~/manage/js/demo/chart-area-demo.js"></script>
     <script src="~/manage/js/demo/chart-pie-demo.js"></script>
+    <script src="~/manage/js/Custom.js" asp-append-version="true"></script>
+
+
 
 </body>
 

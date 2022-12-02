@@ -633,3 +633,6 @@ C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Allup.csproj.CopyComple
 C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Allup.dll
 C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Allup.pdb
 C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Allup.genruntimeconfig.cache
+C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Index.cshtml.g.cs
+C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Create.cshtml.g.cs
+C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Shared\_ValidationPartial.cshtml.g.cs

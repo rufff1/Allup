@@ -11,12 +11,19 @@
     <div class="col-lg-8">
         <form method="post">
             <div class="form-group">
-                <label asp-for="Name" >Name</label>
-                <input asp-for="Name" class="form-control" required  placeholder="Enter Name">
+                <label asp-for="Name">Name</label>
+                <input asp-for="Name" class="form-control" required placeholder="Enter Name">
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
 </div>
+
+
+@*BU LINKLERI HARDAKI FORUMLAR OLAN VIEW VAR ORA ATIRIG SEHIFE REFRESHLENMEMIS ERRORLAR FALAN GORSENIR. LAYOUTA RENDER EDIRIK.partiala
+    cixardim linkleri tekrarlanma olmasin hansi viewe istesek gonderirik bu qaydada*@
+@section script{
+    @await Html.PartialAsync("_ValidationPartial")
+}
 
