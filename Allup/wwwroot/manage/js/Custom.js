@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
 
 
-    let isMain = $(this).is(":checked");
+    let isMain = $("#IsMain").is(":checked");
 
 
     if (isMain) {

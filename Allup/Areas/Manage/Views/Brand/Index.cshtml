@@ -22,21 +22,25 @@
                 <tr>
                     <th>No</th>
                     <th>Name</th>
+                    <th>Created at</th>
+                    <th>Created by</th>
                     <th>Setting</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (Brand brand in Model)
                 {
-                    <tr>
-                        <td>@counter</td>
-                        <td>@brand.Name</td>
-                        <td>
-                            <a class="btn btn-warning">Update</a>
-                            <a class="btn btn-danger">Delete</a>
-                            <a class="btn btn-primary">Detail</a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>@counter</td>
+                    <td>@brand.Name</td>
+                    <td>@brand.CreatedAt</td>
+                    <td>@brand.CreatedBy</td>
+                    <td>
+                        <a class="btn btn-warning" asp-area="manage" asp-controller="brand" asp-action="update" asp-route-id="@brand.Id">Update</a>
+                        <a class="btn btn-danger" asp-area="manage" asp-controller="brand" asp-action="delete" asp-route-id="@brand.Id">Delete</a>
+                        <a class="btn btn-primary" asp-area="manage" asp-controller="brand" asp-action="detail" asp-route-id="@brand.Id">Detail</a>
+                    </td>
+                </tr>
 
                     counter++;
                 }

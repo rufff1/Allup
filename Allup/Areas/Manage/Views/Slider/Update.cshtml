@@ -1,0 +1,64 @@
+﻿@model Slider
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+<h1>Update Slider</h1>
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+
+        @*enctype="multipart/form-data" eger forummuzda file upload mes: sekil yuklenme varsa bunu yazmaliyig*@
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label asp-for="SubTitle">SubTitle</label>
+                <input asp-for="SubTitle" class="form-control" required placeholder="Enter SubTitle">
+                <span asp-validation-for="SubTitle" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MainTitle">MainTitle</label>
+                <input asp-for="MainTitle" class="form-control" required placeholder="Enter MainTitle">
+                <span asp-validation-for="MainTitle" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description">Description</label>
+                <input asp-for="Description" class="form-control" required placeholder="Enter Description">
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PageLink">PageLink</label>
+                <input asp-for="PageLink" class="form-control" required placeholder="Enter PageLink">
+                <span asp-validation-for="PageLink" class="text-danger"></span>
+            </div>
+
+
+            <div id="SliderImage" class="form-group">
+                <label asp-for="File">Image</label>
+                @*inputa multuble atributunu yazdimki bir nece dene sekil sece bilek*@
+                @*multibleni sildim inputdan cunki modelden artig list seklinde gelir IEnumerable<IFormFile> Files *@
+                @*bir sekil lazimdi bize yuklenen IFormFile File *@
+                <input asp-for="File" accept="image/jpg" class="form-control">
+                <span asp-validation-for="File" class="text-danger"></span>
+
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>
+
+
+
+@*BU LINKLERI HARDAKI FORUMLAR OLAN VIEW VAR ORA ATIRIG SEHIFE REFRESHLENMEMIS ERRORLAR FALAN GORSENIR. LAYOUTA RENDER EDIRIK.partiala
+    cixardim linkleri tekrarlanma olmasin hansi viewe istesek gonderirik bu qaydada*@
+@section script{
+    @await Html.PartialAsync("_ValidationPartial")
+}
+

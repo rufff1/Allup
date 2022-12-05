@@ -1,0 +1,58 @@
+﻿@model Slider
+@{
+    ViewData["Title"] = "Detail";
+
+
+}
+
+<h1>Detail Slider</h1>
+
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>SubTitle</th>
+                    <th>MainTitle</th>
+                    <th>Description</th>
+                    <th>PageLink</th>
+                    <th>Created at</th>
+                    <th>Setting</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        <img width="100" src="~/assets/images/@Model.Image" alt="Alternate Text" />
+                    </td>
+                    <td>@Model.SubTitle</td>
+                    <td>@Model.MainTitle</td>
+                    <td>@Model.Description</td>
+                    <td>@Model.PageLink</td>
+                    <td>@Model.CreatedAt?.ToString("dd / MM / yyyy")</td>
+                    <td>
+                        <a class="btn btn-warning" asp-area="manage" asp-controller="slider" asp-action="update" asp-route-id="@Model.Id">Update</a>
+                        <a class="btn btn-danger" asp-area="manage" asp-controller="slider" asp-action="delete" asp-route-id="@Model.Id">Delete</a>
+                        <a class="btn btn-primary" asp-area="manage" asp-controller="slider" asp-action="detail" asp-route-id="@Model.Id">Detail</a>
+                    </td>
+                </tr>
+
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@*BU LINKLERI HARDAKI FORUMLAR OLAN VIEW VAR ORA ATIRIG SEHIFE REFRESHLENMEMIS ERRORLAR FALAN GORSENIR. LAYOUTA RENDER EDIRIK.partiala
+    cixardim linkleri tekrarlanma olmasin hansi viewe istesek gonderirik bu qaydada*@
+@section script{
+    @await Html.PartialAsync("_ValidationPartial")
+}
+

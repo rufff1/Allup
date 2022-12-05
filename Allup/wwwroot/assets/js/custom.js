@@ -1,7 +1,4 @@
-﻿
-
-
-$(document).ready(() => {
+﻿$(document).ready(() => {
 
 
   
@@ -58,6 +55,26 @@ $(document).ready(() => {
             })
 
     })
+
+
+
+    $(document).on("click", ".product-close", function (e) {
+        e.preventDefault();
+
+        let url = $(this).attr("href");
+
+
+        fetch(url)
+            .then(res => {
+                return res.text();
+            })
+            .then(data => {
+
+                $(".header-cart").html(data);
+            })
+
+    })
+
 
     $ (".searchBtn").click(() => {
         let searchInput = $(".searchInput").val();

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
+using System.Collections.Generic; 
 using System.Linq;
 using System.Threading.Tasks;
 using Allup.ViewModels.Basket;
@@ -108,6 +108,54 @@ namespace Allup.Controllers
 
             return Json(products);
 
+        }
+
+
+
+        public async Task<IActionResult> DeleteFromBasket(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("Id null ola bilmez");
+            }
+
+            Product product1 = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+
+            if (product1 == null)
+            {
+                return NotFound("bele id yoxdur");
+            }
+
+            string basket = HttpContext.Request.Cookies["basket"];
+            List<BasketVM> products = null;
+
+
+            if (!string.IsNullOrWhiteSpace(basket))
+            {
+                products = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+                BasketVM basketVM = products.Find(p => p.Id == id);
+                products.Remove(basketVM);
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+            basket = JsonConvert.SerializeObject(products);
+            HttpContext.Response.Cookies.Append("basket", basket);
+
+            foreach (BasketVM basketVM in products)
+            {
+                Product product = await _context.Products.FirstOrDefaultAsync(p => p.Id == basketVM.Id && p.IsDeleted == false);
+
+                basketVM.Title = product.Title;
+                basketVM.Image = product.MainImage;
+                basketVM.ExTax = product.ExTax;
+                basketVM.Price = product.DiscountedPrice > 0 ? product.DiscountedPrice : product.Price;
+            }
+
+
+            return PartialView("_BasketCardPArtial", products);
         }
     }
 }

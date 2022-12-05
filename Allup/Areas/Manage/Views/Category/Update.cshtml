@@ -1,13 +1,13 @@
 ﻿@model Category
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Update";
     IEnumerable<Category> categories = ViewBag.Categories;
     SelectList selectListItems = new SelectList(categories, nameof(Category.Id), nameof(Category.Name));
 }
 
 
-<h1>Create Category</h1>
+<h1>Update Category</h1>
 
 <div class="row justify-content-center">
     <div class="col-lg-8">
@@ -49,16 +49,18 @@
 
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-danger">Update</button>
         </form>
     </div>
 </div>
 
 
 
-@*BU LINKLERI HARDAKI FORUMLAR OLAN VIEW VAR ORA ATIRIG SEHIFE REFRESHLENMEMIS ERRORLAR FALAN GORSENIR. LAYOUTA RENDER EDIRIK.partiala 
+@*BU LINKLERI HARDAKI FORUMLAR OLAN VIEW VAR ORA ATIRIG SEHIFE REFRESHLENMEMIS ERRORLAR FALAN GORSENIR. LAYOUTA RENDER EDIRIK.partiala
     cixardim linkleri tekrarlanma olmasin hansi viewe istesek gonderirik bu qaydada*@
 @section script{
     @await Html.PartialAsync("_ValidationPartial")
 }
+
+
 
