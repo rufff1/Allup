@@ -639,7 +639,6 @@ C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\View
 C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Update.cshtml.g.cs
 C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Brand\Update.cshtml.g.cs
 C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Brand\Delete.cshtml.g.cs
-C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Delete.cshtml.g.cs
 C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Brand\Detail.cshtml.g.cs
 C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Detail.cshtml.g.cs
 C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Index.cshtml.g.cs
@@ -647,3 +646,4 @@ C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\View
 C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Update.cshtml.g.cs
 C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Delete.cshtml.g.cs
 C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Detail.cshtml.g.cs
+C:\Users\ROG\Desktop\Allup\Allup\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Product\Index.cshtml.g.cs

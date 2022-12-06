@@ -36,7 +36,7 @@
                         <img width="100" src="~/assets/images/@category.Image" alt="Alternate Text" />
                     </td>
                     <td>@category.Name</td>
-                    <td>@category.Products.Count()</td>
+                    <td>@category.Products?.Count()</td>
                     <td>@category.CreatedAt?.ToString("dd / MM / yyyy")</td>
                     <td>
                         <a class="btn btn-warning" asp-area="manage" asp-controller="category" asp-action="update" asp-route-id="@category.Id">Update</a>
