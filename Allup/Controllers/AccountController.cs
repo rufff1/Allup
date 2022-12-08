@@ -1,4 +1,5 @@
 ﻿using Allup.Model;
+using Allup.ViewModels.Register;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -32,12 +33,21 @@ namespace Allup.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Register()
-        //{
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterVM registerVM)
+        {
 
-        //    return RedirectToAction("Login");
-        //}
+              if (!ModelState.IsValid)
+            {
+                return View(registerVM);
+            }
+
+
+        
+
+
+            return RedirectToAction("Login");
+        }
     }
 }
