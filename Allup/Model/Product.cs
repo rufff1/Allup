@@ -4,15 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Http;
 
 namespace Allup.Model
 {
     public class Product :BaseEntity
     {
         [StringLength(255)]
+        [Display(Name = "Name")]
         public string Title { get; set; }
          [Column(TypeName = "money")]
         public double Price { get; set; }
+        [Display(Name = "Endirimli Qiymet")]
         public double DiscountedPrice { get; set; }
         public double ExTax { get; set; }
         [StringLength(4)]
@@ -31,7 +34,7 @@ namespace Allup.Model
       
         
         
-        public int BrandId { get; set; }
+        public Nullable<int> BrandId { get; set; }
         public Brand Brand { get; set; }
 
         public int CategoryId { get; set; }
@@ -40,6 +43,23 @@ namespace Allup.Model
         public IEnumerable<ProductImage> ProductImages { get; set; }
 
         public IEnumerable<ProductTag> ProductTags { get; set; }
+
+        [NotMapped]
+        public IFormFile MainImageFile { get; set; }
+        [NotMapped]
+        public IFormFile HoverImageFile { get; set; }
+        [NotMapped]
+        public IEnumerable<IFormFile> ProductImageFiles { get; set; }
+
+
+
+
+        //many to many productnan tagin arasinda .bir nece tag idsi goturmekucun.
+        [NotMapped]
+        [MaxLength(3)]
+        public IEnumerable<int> TagIds { get; set; }
+
+
 
 
     }

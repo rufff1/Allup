@@ -88,16 +88,23 @@ namespace Allup.Areas.Manage.Controllers
                     return View(category);
                 }
 
-                string FileName = Guid.NewGuid().ToString() + "-" + DateTime.UtcNow.AddHours(4).ToString("yyyyyMMddHHmmss") + "-" + category.File.FileName;
-                string path = @"C:\Users\ROG\Desktop\Allup\Allup\wwwroot\assets\images" + category.File.FileName;
+                string path = Path.Combine(_env.WebRootPath, "assets", "images");
 
-                using (FileStream fileStream = new FileStream(path , FileMode.Create))
+              
+
+                string FileName = Guid.NewGuid().ToString() + "-" + DateTime.UtcNow.AddHours(4).ToString("yyyyyMMddHHmmss") + "-" + category.File.FileName;
+                string fullpath = Path.Combine(path, FileName);
+
+                using (FileStream fileStream = new FileStream(fullpath, FileMode.Create))
                 {
                     await category.File.CopyToAsync(fileStream);
                 }
-                
+
                 category.ParentId = null;
                 category.Image = FileName;
+
+
+
 
             }
             else
@@ -214,6 +221,9 @@ namespace Allup.Areas.Manage.Controllers
                     }
 
 
+
+
+
                     //string path = @"C:\Users\ROG\Desktop\Allup\Allup\wwwroot\assets\images";
 
                     string path = Path.Combine(_env.WebRootPath, "assets", "images");
@@ -223,7 +233,7 @@ namespace Allup.Areas.Manage.Controllers
                         System.IO.File.Delete(Path.Combine(path, existedCategory.Image));
                     }
 
-                    string FileName = Guid.NewGuid().ToString() + "-" + DateTime.UtcNow.AddHours(4) + "-" + category.File.FileName;
+                    string FileName = Guid.NewGuid().ToString() + "-" + DateTime.UtcNow.AddHours(4).ToString("yyyyyMMddHHmmss") + "-" + category.File.FileName;
                     string fullpath = Path.Combine(path, FileName);
 
                     using (FileStream fileStream = new FileStream(fullpath, FileMode.Create))

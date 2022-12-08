@@ -1,0 +1,141 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Create";
+    IEnumerable<Brand> brands = ViewBag.Brands;
+    IEnumerable<Category> categories = ViewBag.Categories;
+    IEnumerable<Tag> tags = ViewBag.Tags;
+    SelectList selectListBrandItems = new SelectList(brands, nameof(Brand.Id), nameof(Brand.Name));
+    SelectList selectLisCategorytItems = new SelectList(categories, nameof(Category.Id), nameof(Category.Name));
+    SelectList selectLisTagtItems = new SelectList(tags, nameof(Tag.Id), nameof(Tag.Name));
+
+}
+
+
+<h1>Create Product</h1>
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+
+        @*enctype="multipart/form-data" eger forummuzda file upload mes: sekil yuklenme varsa bunu yazmaliyig*@
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label asp-for="Title">Name</label>
+                <input asp-for="Title" class="form-control" placeholder="Enter Name">
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price">Price</label>
+                <input asp-for="Price" class="form-control" placeholder="Enter Price">
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ExTax">ExTax</label>
+                <input asp-for="ExTax" class="form-control" placeholder="Enter ExTax">
+                <span asp-validation-for="ExTax" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price">Price</label>
+                <input asp-for="Price" class="form-control" placeholder="Enter Price">
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Count">Count</label>
+                <input asp-for="Count" class="form-control" placeholder="Enter Count">
+                <span asp-validation-for="Count" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Description">Description</label>
+                <input asp-for="Description" class="form-control" required placeholder="Enter Description">
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="IsBestSeller"></label>
+                <input asp-for="IsBestSeller" class="form-control" placeholder=" ">
+                <span asp-validation-for="IsBestSeller" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="IsFeatured"></label>
+                <input asp-for="IsFeatured" class="form-control" placeholder=" ">
+                <span asp-validation-for="IsFeatured" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="IsNewArrival"></label>
+                <input asp-for="IsNewArrival" class="form-control" placeholder=" ">
+                <span asp-validation-for="IsNewArrival" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MainImageFile">MainImage</label>
+                @*inputa multuble atributunu yazdimki bir nece dene sekil sece bilek*@
+                @*multibleni sildim inputdan cunki modelden artig list seklinde gelir IEnumerable<IFormFile> Files *@
+                @*bir sekil lazimdi bize yuklenen IFormFile File *@
+                <input asp-for="MainImageFile" accept="image/jpg" class="form-control">
+                <span asp-validation-for="MainImageFile" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="HoverImageFile">HoverImage</label>
+                @*inputa multuble atributunu yazdimki bir nece dene sekil sece bilek*@
+                @*multibleni sildim inputdan cunki modelden artig list seklinde gelir IEnumerable<IFormFile> Files *@
+                @*bir sekil lazimdi bize yuklenen IFormFile File *@
+                <input asp-for="HoverImageFile" accept="image/jpg" class="form-control">
+                <span asp-validation-for="HoverImageFile" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ProductImageFiles">ProductImageFiles</label>
+                @*inputa multuble atributunu yazdimki bir nece dene sekil sece bilek*@
+                @*multibleni sildim inputdan cunki modelden artig list seklinde gelir IEnumerable<IFormFile> Files *@
+                @*bir sekil lazimdi bize yuklenen IFormFile File *@
+                <input asp-for="ProductImageFiles" accept="image/jpg" class="form-control">
+                <span asp-validation-for="ProductImageFiles" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Brand select</label>
+                <select asp-for="BrandId" class="form-control" asp-items="selectListBrandItems">
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Categoriya select</label>
+                <select asp-for="CategoryId" class="form-control" asp-items="selectLisCategorytItems">
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Categoriya select</label>
+                <select asp-for="TagIds" class="form-control" asp-items="selectLisTagtItems">
+                </select>
+                <span asp-validation-for="TagIds" class="text-danger"></span>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+</div>
+
+
+
+@*BU LINKLERI HARDAKI FORUMLAR OLAN VIEW VAR ORA ATIRIG SEHIFE REFRESHLENMEMIS ERRORLAR FALAN GORSENIR. LAYOUTA RENDER EDIRIK.partiala
+    cixardim linkleri tekrarlanma olmasin hansi viewe istesek gonderirik bu qaydada*@
+@section script{
+    @await Html.PartialAsync("_ValidationPartial")
+}
+

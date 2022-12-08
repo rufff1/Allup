@@ -1,9 +1,11 @@
 using Allup.DAL;
 using Allup.Interfaces;
+using Allup.Model;
 using Allup.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,6 +40,30 @@ namespace Allup
 
             services.AddScoped<ILayoutService, LayoutService>();
             services.AddHttpContextAccessor();
+            services.AddIdentity<AppUser, IdentityRole>(options =>
+             {
+                 //parol 8den yuxari
+                 options.Password.RequiredLength = 8;
+                 //gelen sifreden bunlari teleb edecek
+                 options.Password.RequireDigit = true;
+                 options.Password.RequireLowercase = true;
+                 options.Password.RequireUppercase = true;
+                 // parolda simvol olmalidir
+                 //options.Password.RequireNonAlphanumeric = true;
+
+
+
+                 //emailde eyni qeydiyat olsa error verir eyni olmaz.
+                 options.User.RequireUniqueEmail = true;
+
+                 //parolu 3 defeden cox sehf yigsa bloklanir nece dege versek.
+                 options.Lockout.MaxFailedAccessAttempts = 3;
+                 //3 defe sehf parol yigsa 90 saniye bloklanir
+                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(90);
+                 //bu yeni user qerydiyatdan kecse parol cixsa yadinnan 3 defen cox sehf yiga biler.
+                 options.Lockout.AllowedForNewUsers = true;
+
+             }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
             
         }
 
@@ -51,6 +77,12 @@ namespace Allup
 
             app.UseRouting();
             app.UseStaticFiles();
+
+
+            //login olub olmadigini yoxluyur.
+            app.UseAuthentication();
+            //login olmusan neye icazen var ya yoxdu onu yoxluyur.
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
